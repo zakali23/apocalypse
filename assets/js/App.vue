@@ -33,8 +33,9 @@
 
         </nav>
         <!--/.Navbar-->
+        <h1  class="text-sm-center">Les Films secrets</h1>
         <v-layout >
-            <v-flex md-3 @click="view1" v-if="movie.view1" class="text-sm-center">
+            <v-flex md-3 @click.once="view1" v-if="movie.view1" class="text-sm-center">
                 <img :src="movie.img" height="200" width="auto" /><br>
                 {{movie.name}}
             </v-flex>
@@ -109,18 +110,22 @@
                 this.movie.view1 = false
                 this.movie.view3 = false
                 this.movie.view4 = false
+                this.getResultMovie()
+
             },
             view3 () {
 
                 this.movie.view2 = false
                 this.movie.view1 = false
                 this.movie.view4 = false
+                this.getResultMovie()
             },
             view4 () {
 
                 this.movie.view2 = false
                 this.movie.view1 = false
                 this.movie.view3 = false
+                this.getResultMovie()
             },
             getRandomInt() {
                 let res = ''
@@ -128,7 +133,24 @@
                 console.log(res)
                 return res;
 
-    }
+    },
+            getResultMovie(){
+                this.number = this.getRandomInt()
+                const url = `https://hackathon-wild-hackoween.herokuapp.com/movies/${this.number}`;
+                let self = this
+                this.axios({
+                    method: 'get',
+                    url: url
+                })
+                    .then(function (response) {
+                        self.movie.img = response.data.movie.posterUrl;
+                        self.movie.name = response.data.movie.title
+                        console.log(response.data.movie)
+                    }).catch(function (error) {
+                }).finally(function () {
+
+                });
+            }
         }
     };
 </script>
