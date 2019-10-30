@@ -2,10 +2,15 @@ body {
   background-image: url('../../public/images/fond.jpg');
   background-size: cover;
 }
+img {
+  border-radius: 10px;
+}
 .theme--light.v-application {
   background-color: #00000000 !important;
 }
-
+.text-sm-center.text--white {
+    color: white;
+}
 .info, .image{
     position:absolute;
     -webkit-transition: -webkit-transform 1s , z-index 0s 1s;
