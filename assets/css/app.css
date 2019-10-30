@@ -8,7 +8,7 @@ body {
 
 .info, .image{
     position:absolute;
-    -webkit-transition: -webkit-transform 1s , z-index 0s 0.25s;
+    -webkit-transition: -webkit-transform 1s , z-index 0s 1s;
 
 }
 
@@ -22,7 +22,7 @@ body {
 }
 .image{
     z-index: -1;
-    -webkit-transition: -webkit-transform 1s, z-index 0s 0.25s;
+    -webkit-transition: -webkit-transform 1s, z-index 0s 1s;
     -webkit-transform: rotateY(0deg);
 }
 
@@ -33,13 +33,13 @@ body {
 }
 
 .rotator .info{
-    -webkit-transition: -webkit-transform 1s, z-index 0s 0.25s;
+    -webkit-transition: -webkit-transform 1s, z-index 0s 1s;
     z-index: -1;
     -webkit-transform: rotateY(0deg);
 
 }
 .rotator  .image{
     -webkit-transform: rotateY(180deg);
-    -webkit-transition: -webkit-transform 1s, z-index 0s 0.25s;
+    -webkit-transition: -webkit-transform 1s, z-index 0s 1s;
     z-index: -2;
 }

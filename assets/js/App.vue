@@ -4,22 +4,22 @@
         <h1  class="text-sm-center">Les Films secrets</h1>
         <v-layout >
             <v-flex md-3 @click.once="view1" v-if="movie.view1" class="text-sm-center">
-                <img :src="movie.img" height="200" width="auto" /><br>
+                <img :src="movie.img" height="280" width="auto" /><br>
             </v-flex>
             <v-flex md-3 @click="view2" v-if="movie.view2" class="text-sm-center">
-                <img :src="movie.img" height="200" width="auto" />
+                <img :src="movie.img" height="280" width="auto" />
             </v-flex>
             <v-flex md-3 @click="view3" v-if="movie.view3" class="text-sm-center">
-                <img :src="movie.img" height="200" width="auto" />
+                <img :src="movie.img" height="280" width="auto" />
             </v-flex>
             <v-flex md-3 @click="view4" v-if="movie.view4" class="text-sm-center">
-                <img :src="movie.img" height="200" width="auto" />
+                <img :src="movie.img" height="280" width="auto" />
             </v-flex>
             <v-flex md-3 @click="view5" v-if="movie.view5" class="text-sm-center">
-                <img :src="movie.img" height="200" width="auto" />
+                <img :src="movie.img" height="280" width="auto" />
             </v-flex>
             <v-flex md-3 @click="view6" v-if="movie.view6" class="text-sm-center">
-                <img :src="movie.img" height="200" width="auto" />
+                <img :src="movie.img" height="280" width="auto" />
             </v-flex>
         </v-layout>
 
