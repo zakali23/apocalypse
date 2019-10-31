@@ -16,6 +16,11 @@
                     <span> {{drink.name}}</span>
                 </v-flex>
 
+                <v-flex md4  v-if="res3" class="text-sm-center bordure">
+                    <img :src="bouffe.img" :height="choixht" width="auto"  style="border : 5px solid white !important;"/><br>
+                    {{bouffe.name}}
+                </v-flex>
+
             </v-layout>
         </template>
         <template v-if="movie.show">
@@ -70,6 +75,35 @@
             </v-layout>
         </template>
 
+        <template v-if="bouffe.show">
+            <h1  class="text-sm-center">Les boissons en sang</h1>
+            <v-layout bouffe>
+                <v-flex md-3 @click.once="view13" v-if="bouffe.view1" class="text-sm-center cartePlat">
+                    <img :src="bouffe.img" :height="ht" width="auto" /><br>
+                    {{bouffe.name}}
+                </v-flex>
+                <v-flex md-3 @click.once="view14" v-if="bouffe.view2" class="text-sm-center cartePlat">
+                    <img :src="bouffe.img" :height="ht" width="auto" />
+                </v-flex>
+                <v-flex md-3 @click.once="view15" v-if="bouffe.view3" class="text-sm-center cartePlat">
+                    <img :src="bouffe.img" :height="ht" width="auto" />
+
+                </v-flex>
+                <v-flex md-3 @click.once="view16" v-if="bouffe.view4" class="text-sm-center cartePlat">
+                    <img :src="bouffe.img" :height="ht" width="auto" />
+                </v-flex>
+                <v-flex md-3 @click.once="view17" v-if="bouffe.view5" class="text-sm-center cartePlat">
+                    <img :src="bouffe.img" :height="ht" width="auto" />
+
+                </v-flex>
+                <v-flex md-3 @click.once="view18" v-if="bouffe.view6" class="text-sm-center cartePlat">
+                    <img :src="bouffe.img" :height="ht" width="auto" />
+                </v-flex>
+            </v-layout>
+        </template>
+
+
+
 
     </v-app>
 
@@ -120,8 +154,17 @@
                 name:''
             },
             bouffe:{
-                img:'/images/bouffe/'
+                show:false,
+                view1:true,
+                view2:true,
+                view3:true,
+                view4:true,
+                view5:true,
+                view6:true,
+                img:"/images/carte.png/",
+                name:''
             },
+
             choix:false
 
 
@@ -251,6 +294,72 @@
                 this.lettre = this.getRandomLettre()
                 this.getResultDrink()
             },
+            view13 () {
+                this.res3 = true
+                this.bouffe.view1 = false
+                this.bouffe.view2 = false
+                this.bouffe.view3 = false
+                this.bouffe.view4 = false
+                this.bouffe.view5 = false
+                this.bouffe.view6 = false
+                this.lettre = this.getRandomBouffe()
+                this.getResultBouffe()
+            },
+            view14 () {
+                this.res3 = true
+                this.bouffe.view1 = false
+                this.bouffe.view2 = false
+                this.bouffe.view3 = false
+                this.bouffe.view4 = false
+                this.bouffe.view5 = false
+                this.bouffe.view6 = false
+                this.lettre = this.getRandomBouffe()
+                this.getResultBouffe()
+            },
+            view15 () {
+                this.res3 = true
+                this.bouffe.view2 = false
+                this.bouffe.view1 = false
+                this.bouffe.view3 = false
+                this.bouffe.view4 = false
+                this.bouffe.view5 = false
+                this.bouffe.view6 = false
+                this.lettre = this.getRandomBouffe()
+                this.getResultBouffe()
+            },
+            view16 () {
+                this.res3 = true
+                this.bouffe.view2 = false
+                this.bouffe.view3 = false
+                this.bouffe.view1 = false
+                this.bouffe.view4 = false
+                this.bouffe.view5 = false
+                this.bouffe.view6 = false
+                this.lettre = this.getRandomBouffe()
+                this.getResultBouffe()
+            },
+            view17 () {
+                this.res3 = true
+                this.bouffe.view2 = false
+                this.bouffe.view3 = false
+                this.bouffe.view4 = false
+                this.bouffe.view1 = false
+                this.bouffe.view5 = false
+                this.bouffe.view6 = false
+                this.lettre = this.getRandomBouffe()
+                this.getResultBouffe()
+            },
+            view18 () {
+                this.res3 = true
+                this.bouffe.view2 = false
+                this.bouffe.view3 = false
+                this.bouffe.view4 = false
+                this.bouffe.view5 = false
+                this.bouffe.view6 = false
+                this.bouffe.view1 = false
+                this.lettre = this.getRandomBouffe()
+                this.getResultBouffe()
+            },
             getRandomInt() {
                 let res = ''
                  res = Math.floor(Math.random() * Math.floor(82));
@@ -259,10 +368,8 @@
 
             },
             getRandomLettre () {
-                let items = ['a', 'b', 'c', 'd', 'e','f','j','h','i','g','k','l'];
-                let rest = ''
-                rest = items[Math.floor(Math.random()*items.length)];
-                return rest;
+                let items = ['a', 'b', 'c', 'd', 'e','f','j','h','i','g','k','l','m','n','o','p','q','r','s','t','u','v'];
+                return items[Math.floor(Math.random()*items.length)];
             },
             getResultMovie(){
                 this.number = this.getRandomInt()
@@ -296,6 +403,7 @@
                         self.drink.img = response.data.drinks[0].strDrinkThumb;
                         self.drink.name = response.data.drinks[0].strDrink
                         self.drink.show = false
+                        self.bouffe.show = true
                         self.choix = true
                        // self.drink.show = true
                         console.log(response.data.drinks[0])
@@ -304,14 +412,16 @@
 
                 });
             },
-            getRandomBouffe(){
-                let items = ['a', 'b', 'c', 'd', 'e','f','j','h','i','g','k','l'];
-                let nom = ''
-                nom = items[Math.floor(Math.random()*items.length)];
-                let extension = '.jpg'
-                this.bouffe.img = `/images/bouffe/${nom}${extension}`
 
-            }
+            getRandomBouffe(){
+              let items = ['a', 'b', 'c', 'd', 'e','f','j','h','i','g','k','l'];
+              let nom = '';
+              nom = items[Math.floor(Math.random()*items.length)];
+              this.bouffe.name = nom;
+              let extension ='.jpg';
+              this.bouffe.img = `/images/bouffe/${nom}${extension}`
+            },
+
         }
     };
 </script>
