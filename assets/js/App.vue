@@ -262,6 +262,7 @@
                 this.movie.view4 = false
                 this.movie.view5 = false
                 this.movie.view6 = false
+                this.getResultMonster()
  
             },
             view3 () {
@@ -276,6 +277,8 @@
                 this.filler.view = true
 //                this.res3 = true
                 this.getResultMovie()
+                this.getResultMonster()
+
             },
             view4 () {
 
@@ -289,6 +292,8 @@
                 this.filler.view = true
 //                this.res3 = true
                 this.getResultMovie()
+                this.getResultMonster()
+
             },
             view5 () {
 
@@ -302,6 +307,7 @@
                 this.filler.view = true
 //                this.res3 = true
                 this.getResultMovie()
+                this.getResultMonster()
             },
             view6 () {
 //                this.res3 = true
@@ -316,6 +322,7 @@
                 this.filler.view = true
                 this.res1 = true
                 this.getResultMovie()
+                this.getResultMonster()
             },
 
             view7 () {
