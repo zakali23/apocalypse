@@ -1,12 +1,12 @@
 @import url('https://fonts.googleapis.com/css?family=Rock+Salt&display=swap');
+html{
+    font-family: 'Rock Salt', cursive;
+}
 
 body {
   background-image: url('../../public/images/fond.jpg');
   background-size: cover;
   font-family: 'Rock Salt', cursive;
-}
-html{
-    font-family: 'Rock Salt', cursive;
 }
 img {
   border-radius: 10px;
@@ -15,13 +15,49 @@ span {
     color: orangered;
     font-family: 'Rock Salt', cursive;
 }
+table {
+  font-family : 'Rock Salt', cursive;
+}
+a {
+  text-decoration: none;
+  color: #FFF;
+  font-weight: bold;
+}
+a:hover {
+  text-decoration: none;
+}
+@keyframes fadeIn {
+  0% {
+    transform: opacity(0%) translateY(40px) width(120%);
+  }
+  50% {
+    transform: opacity(0%) translateY(40px) width(120%);
+  }
+  100% {
+    transform: opacity(100%) translateY(0px) width(100%);
+  }
+}
 .carteCocktail{
   filter: sepia(0.3);
   filter: hue-rotate(120deg);
+animation: 2s ease-out 0s 1 fadeIn;
+}
+.carteCocktail:hover{
+  cursor:pointer ;
 }
 .cartePlat{
-  filter: sepia(0.3);
-  filter: hue-rotate(240deg);
+filter: invert(0.85);
+animation: 2s ease-out 0s 1 fadeIn;
+}
+.cartePlat:hover{
+  cursor:pointer ;
+}
+.carteMovie{
+animation: 1s ease-out 0s 1 fadeIn;
+animation-delay: 250ms;
+}
+.carteMovie:hover{
+  cursor:pointer ;
 }
 
 .theme--light.v-application {
@@ -35,6 +71,35 @@ span {
 h1.text-sm-center {
     color: orangered;
     font-family: 'Rock Salt', cursive;
+}
+h2.text-sm-center {
+    color: orange;
+    font-family: 'Rock Salt', cursive;
+    font-size: 1.2em;
+    line-height: 1.2em;
+}
+.resultFond {
+  display:flex; position: absolute; top : 0; left : 0; width: 100%; height:100%; background:#000000BB;
+  justify-content: center;
+}
+.result {
+  display:flex;
+  justify-content: center;
+  flex-direction: column;
+  position: absolute; top : 100px; left : 380px;
+}
+.resultTitle {
+/*  display:block; position: absolute; top : 200px; left : 380px;;
+*/}
+
+.resultFiche {
+  display:block; position: relative; top : 0px; left : 0px; height:340px;
+}
+.carteMonster{
+   justify-content: center; align-items: center;background-position:center;background-image: url('/images/parchemin.png'); width: 510px; height: 340px;
+  /*
+  background-size:cover;
+  */
 }
 .info, .image{
     position:absolute;
@@ -72,4 +137,7 @@ h1.text-sm-center {
     -webkit-transform: rotateY(180deg);
     -webkit-transition: -webkit-transform 1s, z-index 0s 1s;
     z-index: -2;
+}
+.monsterPic {
+  filter:sepia(0.5);
 }
