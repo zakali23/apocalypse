@@ -1,8 +1,9 @@
 <template>
     <v-app>
         <br><br>
+        <h1 class="text-sm-center">Quel est votre monstre totem ?</h1>
         <template v-if="choix">
-            <h1  class="text-sm-center text--white">Mes choix :</h1><br>
+            <h2  class="text-sm-center text--white">Mes choix :</h2><br>
             <v-layout >
                 <v-flex md4  v-if="res1" class="text-sm-center bordure">
                     <img :src="movie.img" :height="choixht" width="auto" style="border : 5px solid white !important;"/><br>
@@ -22,7 +23,7 @@
             </v-layout>
         </template>
         <template v-if="movie.show">
-            <h1  class="text-sm-center">Les Films secrets</h1><br>
+            <h2  class="text-sm-center">Les Films secrets</h2><br>
             <v-layout v-if="movie.show">
                 <v-flex md-3 @click.once="view1" v-if="movie.view1" class="text-sm-center">
                     <img :src="movie.img" :height="ht" width="auto" /><br>
@@ -46,7 +47,7 @@
             </v-layout>
         </template>
         <template v-if="drink.show">
-            <h1  class="text-sm-center">Les boissons en sang</h1>
+            <h2  class="text-sm-center">Les boissons en sang</h2>
             <v-layout >
                 <v-flex md-3 @click.once="view7" v-if="drink.view1" class="text-sm-center carteCocktail">
                     <img :src="drink.img" :height="ht" width="auto" /><br>
@@ -71,7 +72,7 @@
             </v-layout>
         </template>
         <template v-if="bouffe.show">
-            <h1 class="text-sm-center">Les boissons en sang</h1>
+            <h2 class="text-sm-center">Les boissons en sang</h2>
             <v-layout >
                 <v-flex md-3 @click="view13" v-if="bouffe.view1" class="text-sm-center cartePlat">
                     <img :src="bouffe.img" :height="ht" width="auto" /><br>
@@ -381,7 +382,7 @@
                 })
                     .then(function (response) {
                         self.movie.img = response.data.movie.posterUrl;
-                        self.movie.name = response.data.movie.title
+                        self.movie.name = (response.data.movie.title).replace('_',' ')
                         self.movie.id = response.data.movie.id
                         self.movie.show = false
                         self.choix = true
