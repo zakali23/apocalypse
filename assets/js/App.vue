@@ -34,23 +34,36 @@
                 <v-flex md-3 @click.once="view4" v-if="movie.view4" class="text-sm-center">
                     <img :src="movie.img" :height="ht" width="auto" />
                 </v-flex>
+                <v-flex md-3 @click.once="view5" v-if="movie.view5" class="text-sm-center">
+                    <img :src="movie.img" :height="ht" width="auto" />
+                </v-flex>
+                <v-flex md-3 @click.once="view6" v-if="movie.view6" class="text-sm-center">
+                    <img :src="movie.img" :height="ht" width="auto" />
+                </v-flex>
             </v-layout>
         </template>
         <template v-if="drink.show">
             <h1  class="text-sm-center">Les boissons en sang</h1>
             <v-layout drink>
-                <v-flex md-3 @click.once="view5" v-if="drink.view1" class="text-sm-center">
+                <v-flex md-3 @click.once="view7" v-if="drink.view1" class="text-sm-center">
                     <img :src="drink.img" :height="ht" width="auto" /><br>
                     {{drink.name}}
                 </v-flex>
-                <v-flex md-3 @click.once="view6" v-if="drink.view2" class="text-sm-center">
+                <v-flex md-3 @click.once="view8" v-if="drink.view2" class="text-sm-center">
                     <img :src="drink.img" :height="ht" width="auto" />
                 </v-flex>
-                <v-flex md-3 @click.once="view7" v-if="drink.view3" class="text-sm-center">
+                <v-flex md-3 @click.once="view9" v-if="drink.view3" class="text-sm-center">
                     <img :src="drink.img" :height="ht" width="auto" />
 
                 </v-flex>
-                <v-flex md-3 @click.once="view8" v-if="drink.view4" class="text-sm-center">
+                <v-flex md-3 @click.once="view10" v-if="drink.view4" class="text-sm-center">
+                    <img :src="drink.img" :height="ht" width="auto" />
+                </v-flex>
+                <v-flex md-3 @click.once="view11" v-if="drink.view5" class="text-sm-center">
+                    <img :src="drink.img" :height="ht" width="auto" />
+
+                </v-flex>
+                <v-flex md-3 @click.once="view12" v-if="drink.view6" class="text-sm-center">
                     <img :src="drink.img" :height="ht" width="auto" />
                 </v-flex>
             </v-layout>
@@ -89,6 +102,8 @@
                 view2:true,
                 view3:true,
                 view4:true,
+                view5:true,
+                view6:true,
                 img:"/images/carte.png/",
                 name:''
             },
@@ -98,6 +113,8 @@
                 view2:true,
                 view3:true,
                 view4:true,
+                view5:true,
+                view6:true,
                 img:"/images/carte.png/",
                 name:''
             },
@@ -112,6 +129,8 @@
                 this.movie.view2 = false
                 this.movie.view3 = false
                 this.movie.view4 = false
+                this.movie.view5 = false
+                this.movie.view6 = false
                 this.res1 = true
                 this.number = this.getRandomInt()
                 this.getResultMovie()
@@ -121,6 +140,8 @@
                 this.movie.view1 = false
                 this.movie.view3 = false
                 this.movie.view4 = false
+                this.movie.view5 = false
+                this.movie.view6 = false
                 this.res1 = true
                 this.getResultMovie()
 
@@ -130,6 +151,8 @@
                 this.movie.view2 = false
                 this.movie.view1 = false
                 this.movie.view4 = false
+                this.movie.view5 = false
+                this.movie.view6 = false
                 this.res1 = true
                 this.getResultMovie()
             },
@@ -137,39 +160,90 @@
 
                 this.movie.view2 = false
                 this.movie.view1 = false
+                this.movie.view5 = false
+                this.movie.view6 = false
                 this.movie.view3 = false
                 this.res1 = true
                 this.getResultMovie()
             },
             view5 () {
-                this.res2 = true
-                this.drink.view2 = false
-                this.drink.view3 = false
-                this.drink.view4 = false
-                this.lettre = this.getRandomLettre()
-                this.getResultDrink()
+
+                this.movie.view2 = false
+                this.movie.view1 = false
+                this.movie.view4 = false
+                this.movie.view6 = false
+                this.movie.view3 = false
+                this.res1 = true
+                this.getResultMovie()
             },
             view6 () {
-                this.res2 = true
-                this.drink.view2 = false
-                this.drink.view3 = false
-                this.drink.view4 = false
-                this.lettre = this.getRandomLettre()
-                this.getResultDrink()
+
+                this.movie.view2 = false
+                this.movie.view1 = false
+                this.movie.view5 = false
+                this.movie.view4 = false
+                this.movie.view3 = false
+                this.res1 = true
+                this.getResultMovie()
             },
             view7 () {
                 this.res2 = true
                 this.drink.view2 = false
                 this.drink.view3 = false
                 this.drink.view4 = false
+                this.drink.view5 = false
+                this.drink.view6 = false
                 this.lettre = this.getRandomLettre()
                 this.getResultDrink()
             },
             view8 () {
                 this.res2 = true
+                this.drink.view1 = false
+                this.drink.view3 = false
+                this.drink.view4 = false
+                this.drink.view5 = false
+                this.drink.view6 = false
+
+                this.lettre = this.getRandomLettre()
+                this.getResultDrink()
+            },
+            view9 () {
+                this.res2 = true
+                this.drink.view2 = false
+                this.drink.view1 = false
+                this.drink.view4 = false
+                this.drink.view5 = false
+                this.drink.view6 = false
+                this.lettre = this.getRandomLettre()
+                this.getResultDrink()
+            },
+            view10 () {
+                this.res2 = true
+                this.drink.view2 = false
+                this.drink.view3 = false
+                this.drink.view1 = false
+                this.drink.view5 = false
+                this.drink.view6 = false
+                this.lettre = this.getRandomLettre()
+                this.getResultDrink()
+            },
+            view11 () {
+                this.res2 = true
                 this.drink.view2 = false
                 this.drink.view3 = false
                 this.drink.view4 = false
+                this.drink.view1 = false
+                this.drink.view6 = false
+                this.lettre = this.getRandomLettre()
+                this.getResultDrink()
+            },
+            view12 () {
+                this.res2 = true
+                this.drink.view1 = false
+                this.drink.view3 = false
+                this.drink.view4 = false
+                this.drink.view5 = false
+                this.drink.view2 = false
                 this.lettre = this.getRandomLettre()
                 this.getResultDrink()
             },
