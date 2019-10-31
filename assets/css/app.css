@@ -1,9 +1,19 @@
+@import url('https://fonts.googleapis.com/css?family=Rock+Salt&display=swap');
+
 body {
   background-image: url('../../public/images/fond.jpg');
   background-size: cover;
+  font-family: 'Rock Salt', cursive;
+}
+html{
+    font-family: 'Rock Salt', cursive;
 }
 img {
   border-radius: 10px;
+}
+span {
+    color: orangered;
+    font-family: 'Rock Salt', cursive;
 }
 .carteCocktail{
   filter: sepia(0.3);
@@ -18,7 +28,13 @@ img {
   background-color: #00000000 !important;
 }
 .text-sm-center.text--white {
-    color: white;
+    color: orangered;
+    font-family: 'Rock Salt', cursive;
+
+}
+h1.text-sm-center {
+    color: orangered;
+    font-family: 'Rock Salt', cursive;
 }
 .info, .image{
     position:absolute;

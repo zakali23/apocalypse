@@ -1,24 +1,25 @@
 <template>
     <v-app>
+        <br><br>
         <template v-if="choix">
-            <h1  class="text-sm-center text--white">Mes choix :</h1>
+            <h1  class="text-sm-center text--white">Mes choix :</h1><br>
             <v-layout >
                 <v-flex md4  v-if="res1" class="text-sm-center bordure">
                     <img :src="movie.img" :height="choixht" width="auto" style="border : 5px solid white !important;
 "/><br>
-                    {{movie.name}}
+                    <span>{{movie.name}}</span>
                 </v-flex>
 
                 <v-flex md4  v-if="res2" class="text-sm-center bordure">
                     <img :src="drink.img" :height="choixht" width="auto"  style="border : 5px solid white !important;
 "/><br>
-                    {{drink.name}}
+                    <span> {{drink.name}}</span>
                 </v-flex>
 
             </v-layout>
         </template>
         <template v-if="movie.show">
-            <h1  class="text-sm-center">Les Films secrets</h1>
+            <h1  class="text-sm-center">Les Films secrets</h1><br>
             <v-layout v-if="movie.show">
                 <v-flex md-3 @click.once="view1" v-if="movie.view1" class="text-sm-center">
                     <img :src="movie.img" :height="ht" width="auto" /><br>
@@ -117,6 +118,9 @@
                 view6:true,
                 img:"/images/carte.png/",
                 name:''
+            },
+            bouffe:{
+                img:'/images/bouffe/'
             },
             choix:false
 
@@ -256,7 +260,9 @@
             },
             getRandomLettre () {
                 let items = ['a', 'b', 'c', 'd', 'e','f','j','h','i','g','k','l'];
-                return items[Math.floor(Math.random()*items.length)];
+                let rest = ''
+                rest = items[Math.floor(Math.random()*items.length)];
+                return rest;
             },
             getResultMovie(){
                 this.number = this.getRandomInt()
@@ -297,6 +303,14 @@
                 }).finally(function () {
 
                 });
+            },
+            getRandomBouffe(){
+                let items = ['a', 'b', 'c', 'd', 'e','f','j','h','i','g','k','l'];
+                let nom = ''
+                nom = items[Math.floor(Math.random()*items.length)];
+                let extension = '.jpg'
+                this.bouffe.img = `/images/bouffe/${nom}${extension}`
+
             }
         }
     };
