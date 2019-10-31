@@ -3,9 +3,9 @@
 &nbsp:<br/>
         <h1 class="text-sm-center">Avec quel monstre passerez-vous Halloween ?</h1>
         <template v-if="bouffe.show">
-            <h2 class="text-sm-center">Quel plat pour votre Halloween ?</h2>
+            <h2 class="text-sm-center ">Quel plat pour votre Halloween ?</h2>
             <v-layout >
-                <v-flex md-3 @click="view13" v-if="bouffe.view1" class="text-sm-center cartePlat">
+                <v-flex md-3 @click="view13" v-if="bouffe.view1" :class="animation" @mouseover="animateHe">
                     <img src="/images/carte.png/" :height="ht" width="auto" /><br>
                 </v-flex>
                 <v-flex md-3 @click="view14" v-if="bouffe.view2" class="text-sm-center cartePlat">
@@ -61,7 +61,7 @@
         <template v-if="movie.show">
             <h2  class="text-sm-center">Et un film, pour vous détendre</h2><br>
             <v-layout v-if="movie.show">
-                <v-flex md-3 @click="view1" v-if="movie.view1" class="text-sm-center carteMovie">
+                <v-flex md-3 @click="view1" v-if="movie.view1" class="text-sm-center carteMovie ">
                     <img src="/images/carte.png/" :height="ht" width="auto" /><br>
                 </v-flex>
                 <v-flex md-3 @click="view2" v-if="movie.view2" class="text-sm-center carteMovie">
@@ -170,6 +170,7 @@
             choixht:200,
             ht:280,
             name:'',
+            animation:'text-sm-center cartePlat',
             nameErrors:'',
             numRandom:0,
             number:'',
@@ -575,6 +576,9 @@
 
                 });
             },
+            animateHe(){
+               this.animation= "text-sm-center cartePlat animated bounce infinite"
+            }
         }
     };
 </script>
