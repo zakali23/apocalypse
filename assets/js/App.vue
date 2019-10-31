@@ -109,9 +109,9 @@
 
 <script>
     import axios from 'axios';
-    import 'vuetify/dist/vuetify.min.css'
-    import '@mdi/font/css/materialdesignicons.css'
-    import search from './components/search.vue'
+    import 'vuetify/dist/vuetify.min.css';
+    import '@mdi/font/css/materialdesignicons.css';
+    import search from './components/search.vue';
     export default {
         name: "HelloWorld",
         components:{
@@ -122,6 +122,7 @@
             ht:280,
             name:'',
             nameErrors:'',
+            numRandom:0,
             number:'',
             lettre:'',
             movies:[],
@@ -300,8 +301,9 @@
                 this.bouffe.view4 = false
                 this.bouffe.view5 = false
                 this.bouffe.view6 = false
-                this.lettre = this.getRandomBouffe()
-                this.getResultBouffe()
+                this.getRandomBouffe()
+             //   this.getResultBouffe()
+              this.getResultMonster()
             },
             view14 () {
                 this.res3 = true
@@ -311,8 +313,9 @@
                 this.bouffe.view4 = false
                 this.bouffe.view5 = false
                 this.bouffe.view6 = false
-                this.lettre = this.getRandomBouffe()
-                this.getResultBouffe()
+                this.getRandomBouffe()
+            //    this.getResultBouffe()
+              this.getResultMonster()
             },
             view15 () {
                 this.res3 = true
@@ -322,8 +325,9 @@
                 this.bouffe.view4 = false
                 this.bouffe.view5 = false
                 this.bouffe.view6 = false
-                this.lettre = this.getRandomBouffe()
-                this.getResultBouffe()
+                this.getRandomBouffe()
+            //    this.getResultBouffe()
+              this.getResultMonster()
             },
             view16 () {
                 this.res3 = true
@@ -333,8 +337,10 @@
                 this.bouffe.view4 = false
                 this.bouffe.view5 = false
                 this.bouffe.view6 = false
-                this.lettre = this.getRandomBouffe()
-                this.getResultBouffe()
+                this.getRandomBouffe()
+            //    this.getResultBouffe()
+                              this.getResultMonster()
+
             },
             view17 () {
                 this.res3 = true
@@ -344,8 +350,9 @@
                 this.bouffe.view1 = false
                 this.bouffe.view5 = false
                 this.bouffe.view6 = false
-                this.lettre = this.getRandomBouffe()
-                this.getResultBouffe()
+                this.getRandomBouffe()
+              //  this.getResultBouffe()
+              this.getResultMonster()
             },
             view18 () {
                 this.res3 = true
@@ -355,13 +362,14 @@
                 this.bouffe.view5 = false
                 this.bouffe.view6 = false
                 this.bouffe.view1 = false
-                this.lettre = this.getRandomBouffe()
-                this.getResultBouffe()
+                this.getRandomBouffe()
+              //  this.getResultBouffe()
+              this.getResultMonster()
             },
             getRandomInt() {
                 let res = ''
                  res = Math.floor(Math.random() * Math.floor(82));
-                console.log(res)
+               // console.log(res)
                 return res;
 
             },
@@ -380,10 +388,11 @@
                     .then(function (response) {
                         self.movie.img = response.data.movie.posterUrl;
                         self.movie.name = response.data.movie.title
+                        self.movie.id = response.data.movie.id
                         self.movie.show = false
                         self.choix = true
                         self.drink.show = true
-                        console.log(response.data.movie)
+                       // console.log(response.data.movie)
                     }).catch(function (error) {
                 }).finally(function () {
 
@@ -400,11 +409,12 @@
                     .then(function (response) {
                         self.drink.img = response.data.drinks[0].strDrinkThumb;
                         self.drink.name = response.data.drinks[0].strDrink
+                        self.drink.id = response.data.drinks[0].idDrink
                         self.drink.show = false
                         self.bouffe.show = true
                         self.choix = true
                        // self.drink.show = true
-                        console.log(response.data.drinks[0])
+                       // console.log(response.data.drinks[0])
                     }).catch(function (error) {
                 }).finally(function () {
 
@@ -412,14 +422,38 @@
             },
 
             getRandomBouffe(){
+            	//alert('putain !!')
               let items = ['caviar_sanguinolant', 'céleris', 'choucroute', 'entrecote_de_zombie', 'hamburger_dechu','kebap_de_la_mort','lasagnes_de_ta_grand_mere','pizza_input','schneck_en_croute','steak_saignant','sushi_au_mercure','tacos_gluant'];
               let nom = '';
-              nom = items[Math.floor(Math.random()*items.length)];
+              this.numRandom = Math.floor(Math.random()*items.length)
+              nom = items[this.numRandom];
               this.bouffe.name = nom;
               let extension ='.jpg';
               this.bouffe.img = `/images/bouffe/${nom}${extension}`
             },
 
+            getResultMonster(){
+                let pouet = (this.movie.id + this.drink.id + this.numRandom)%20
+                console.log(pouet)
+
+	            const url = `https://hackathon-wild-hackoween.herokuapp.com/monsters/${pouet}`;
+                let self = this
+                console.log(url)
+this.axios({
+                    method: 'get',
+                    url: url
+                })
+                    .then(function (response) {
+                        self.monster.img = response.data.monsters.picture;
+                        self.monster.name = response.data.monsters.name
+                        self.monster.id = response.data.monsters.id
+                        self.monster.show = true
+                        self.choix = true
+                        console.log(response)
+                    }).catch(function (error) {
+			        }).finally(function () {
+                });
+        	},
         }
     };
 </script>
