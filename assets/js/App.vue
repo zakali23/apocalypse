@@ -18,7 +18,7 @@
 
                 <v-flex md4  v-if="res3" class="text-sm-center bordure">
                     <img :src="bouffe.img" :height="choixht" width="auto"  style="border : 5px solid white !important;"/><br>
-                    {{bouffe.name}}
+                   <span> {{bouffe.name}}</span>
                 </v-flex>
 
             </v-layout>
