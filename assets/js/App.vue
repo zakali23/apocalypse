@@ -239,18 +239,22 @@
                 this.filler.show = true
 
                 this.number = this.getRandomInt()
-                this.getResultMovie()
 
                 this.movie.view2 = false
                 this.movie.view3 = false
                 this.movie.view4 = false
                 this.movie.view5 = false
                 this.movie.view6 = false
+                this.getResultMovie()
+                this.sleep(1000)
+                this.movie.view1 = false
+                this.getResultMonster()
              },
             view2 () {
 
                 this.filler.view = true
                 this.filler.show = true
+ //               this.sleep(200)
 
                 this.getResultMovie()
                 this.movie.view1 = false
@@ -267,6 +271,7 @@
                 this.movie.view4 = false
                 this.movie.view5 = false
                 this.movie.view6 = false
+//                this.sleep(200)
                 this.filler.show = true
                 this.filler.view = true
 //                this.res3 = true
@@ -274,11 +279,12 @@
             },
             view4 () {
 
-                this.movie.view2 = false
+               this.movie.view2 = false
                 this.movie.view1 = false
                 this.movie.view5 = false
                 this.movie.view6 = false
                 this.movie.view3 = false
+ //                this.sleep(200)
                 this.filler.show = true
                 this.filler.view = true
 //                this.res3 = true
@@ -291,6 +297,7 @@
                 this.movie.view4 = false
                 this.movie.view6 = false
                 this.movie.view3 = false
+  //               this.sleep(200)
                 this.filler.show = true
                 this.filler.view = true
 //                this.res3 = true
@@ -304,6 +311,7 @@
                 this.movie.view5 = false
                 this.movie.view4 = false
                 this.movie.view3 = false
+    //            this.sleep(200)
                 this.filler.show = true
                 this.filler.view = true
                 this.res1 = true
@@ -314,6 +322,7 @@
 
                 this.lettre = this.getRandomLettre()
                 this.getResultDrink()
+                this.sleep(200)
                 this.drink.view2 = false
                 this.drink.view3 = false
                 this.drink.view4 = false
@@ -324,6 +333,7 @@
 //                this.res2 = true
                 this.lettre = this.getRandomLettre()
                 this.getResultDrink()
+                this.sleep(200)
                 this.drink.view1 = false
                 this.drink.view3 = false
                 this.drink.view4 = false
@@ -335,6 +345,7 @@
 //                this.res2 = true
                 this.lettre = this.getRandomLettre()
                 this.getResultDrink()
+                this.sleep(200)
                 this.drink.view2 = false
                 this.drink.view1 = false
                 this.drink.view4 = false
@@ -343,8 +354,9 @@
             },
             view10 () {
  //               this.res2 = true
-                this.lettre = this.getRandomLettre()
+               this.lettre = this.getRandomLettre()
                 this.getResultDrink()
+                 this.sleep(200)
                 this.drink.view2 = false
                 this.drink.view3 = false
                 this.drink.view1 = false
@@ -355,6 +367,7 @@
 //                this.res2 = true
                 this.lettre = this.getRandomLettre()
                 this.getResultDrink()
+                this.sleep(200)
                 this.drink.view2 = false
                 this.drink.view3 = false
                 this.drink.view4 = false
@@ -363,8 +376,9 @@
             },
             view12 () {
 //                this.res2 = true
-                this.lettre = this.getRandomLettre()
+               this.lettre = this.getRandomLettre()
                 this.getResultDrink()
+                this.sleep(200)
                 this.drink.view1 = false
                 this.drink.view3 = false
                 this.drink.view4 = false
@@ -379,10 +393,12 @@
                 this.bouffe.view4 = false
                 this.bouffe.view5 = false
                 this.bouffe.view6 = false
+                this.sleep(200)
                 this.getRandomBouffe()
             },
             view14 () {
 //                this.res1 = true
+                this.sleep(200)
                 this.bouffe.view1 = false
                 this.bouffe.view2 = false
                 this.bouffe.view3 = false
@@ -393,6 +409,7 @@
             },
             view15 () {
 //                this.res1 = true
+                this.sleep(200)
                 this.bouffe.view2 = false
                 this.bouffe.view1 = false
                 this.bouffe.view3 = false
@@ -403,6 +420,7 @@
             },
             view16 () {
 //                this.res1 = true
+                this.sleep(200)
                 this.bouffe.view2 = false
                 this.bouffe.view3 = false
                 this.bouffe.view1 = false
@@ -413,6 +431,7 @@
 
             },
             view17 () {
+                this.sleep(200)
 //                this.res1 = true
                 this.bouffe.view2 = false
                 this.bouffe.view3 = false
@@ -423,6 +442,7 @@
                 this.getRandomBouffe()
             },
             view18 () {
+                this.sleep(200)
 //                this.res1 = true
                 this.bouffe.view2 = false
                 this.bouffe.view3 = false
@@ -432,17 +452,13 @@
                 this.bouffe.view1 = false
                 this.getRandomBouffe()
             },
-            verifieDrink(machin,i) {
-                for (i=1;i<7;i++){
-                let el = machin+'.view' +i;
-//                alert(el)
-                    if (i==num){
-                        this.el = true;
-                    } 
-                    else {
-                        this.el = false;
-                    } 
-                }
+            sleep(milliseconds) {
+             var start = new Date().getTime();
+             for (var i = 0; i < 1e7; i++) {
+               if ((new Date().getTime() - start) > milliseconds){
+                 break;
+               }
+             }
             },
             getRandomInt() {
                 let res = ''
@@ -459,6 +475,7 @@
                 this.number = this.getRandomInt()
                 const url = `https://hackathon-wild-hackoween.herokuapp.com/movies/${this.number}`;
                 let self = this
+                this.res3 = true
                 this.axios({
                     method: 'get',
                     url: url
@@ -477,9 +494,7 @@
 
                 });
 //                alert('pouet')
-                this.res3 = true
-
-                 this.getResultMonster()
+//                 this.getResultMonster()
 
             },
             getResultDrink(){
@@ -549,8 +564,8 @@
                         self.choix = true
                     }).catch(function (error) {
                     }).finally(function () {
-                    this.res3 = true
-                    
+
+
                 });
             },
         }
