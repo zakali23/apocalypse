@@ -2,10 +2,10 @@
     <v-app>
 &nbsp:<br/>
         <h1 class="text-sm-center">Avec quel monstre passerez-vous Halloween ?</h1>
-        <template v-if="bouffe.show">
+        <template v-if="bouffe.show" class="animate fadeInDown ">
             <h2 class="text-sm-center ">Quel plat pour votre Halloween ?</h2>
             <v-layout >
-                <v-flex md-3 @click="view13" v-if="bouffe.view1" :class="animation" @mouseover="animateHe">
+                <v-flex md-3 @click="view13" v-if="bouffe.view1" :class="animation" @mouseover="animateHe" @mouseout="desanime">
                     <img src="/images/carte.png/" :height="ht" width="auto" /><br>
                 </v-flex>
                 <v-flex md-3 @click="view14" v-if="bouffe.view2" class="text-sm-center cartePlat">
@@ -578,6 +578,9 @@
             },
             animateHe(){
                this.animation= "text-sm-center cartePlat animated bounce infinite"
+            },
+            desanime(){
+                this.animation= "text-sm-center cartePlat animated bounce "
             }
         }
     };
