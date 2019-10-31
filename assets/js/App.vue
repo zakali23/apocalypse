@@ -95,6 +95,42 @@
                 </v-flex>
             </v-layout>
         </template>
+        <template v-if="monster.show">
+        <h1 class="text-sm-center">Vous avez l'honneur d'être : </h1>
+        <v-layout >
+            <v-flex md-6 v-if="monster" class="text-sm-center carteMonster" style="display: flex; justify-content: center; align-items: center;background-image: url('/images/parchemin.png'); width: 510px;margin: 0 auto">
+            <table border="3" width="490px" height="320px">
+                <tr>
+                    <td rowspan="8"><img :src="monster.img" :height="ht" width="auto" /></td>
+                    <td colspan="2">Level</td>
+                </tr>
+                <tr>
+                    <td colspan="2">{{monster.lvl}}</td>
+                </tr>
+                <tr>
+                    <td>Attack</td>
+                    <td>Defense</td>
+                </tr>
+                <tr>
+                    <td>{{monster.atck}}</td>
+                    <td>{{monster.def}}</td>
+                </tr>
+                <tr>
+                    <td colspan="2">Special</td>
+                </tr>
+                <tr>
+                    <td colspan="2">{{monster.spec}}</td>
+                </tr>
+                <tr>
+                    <td colspan="2">Description</td>
+                </tr>
+                <tr>
+                    <td colspan="2">{{monster.desc}}</td>
+                </tr>
+            </table>
+            </v-flex>
+        </v-layout>
+    </template>
 
 
 
@@ -158,6 +194,15 @@
                 view6:true,
                 img:"/images/carte.png/",
                 name:''
+            },
+            monster:{
+                show:false,
+                img:'',
+                lvl:'',
+                atck:'',
+                def:'',
+                spec:'',
+                desc:'',
             },
             choix:false
 
@@ -434,20 +479,25 @@
 	            const url = `https://hackathon-wild-hackoween.herokuapp.com/monsters/${pouet}`;
                 let self = this
                 console.log(url)
-this.axios({
+                this.axios({
                     method: 'get',
                     url: url
                 })
                     .then(function (response) {
-                        self.monster.img = response.data.monsters.picture;
-                        self.monster.name = response.data.monsters.name
-                        self.monster.id = response.data.monsters.id
+                        self.monster.img = response.data.monster.picture;
+                        self.monster.name = response.data.monster.name
+                        self.monster.id = response.data.monster.id
+                        self.monster.atck = response.data.monster.attack
+                        self.monster.def = response.data.monster.defense
+                        self.monster.desc = response.data.monster.description
+                        self.monster.lvl = response.data.monster.level
+                        self.monster.spec = response.data.monster.special
                         self.monster.show = true
                         self.choix = true
-                        console.log(response)
                     }).catch(function (error) {
 			        }).finally(function () {
                 });
+                this.monster.show = true
         	},
         }
     };
