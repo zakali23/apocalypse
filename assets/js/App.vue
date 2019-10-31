@@ -432,18 +432,6 @@
                 this.bouffe.view1 = false
                 this.getRandomBouffe()
             },
-            verifieDrink(machin,i) {
-                for (i=1;i<7;i++){
-                let el = machin+'.view' +i;
-//                alert(el)
-                    if (i==num){
-                        this.el = true;
-                    } 
-                    else {
-                        this.el = false;
-                    } 
-                }
-            },
             getRandomInt() {
                 let res = ''
                  res = Math.floor(Math.random() * Math.floor(82));
