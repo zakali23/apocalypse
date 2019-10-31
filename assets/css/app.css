@@ -5,6 +5,15 @@ body {
 img {
   border-radius: 10px;
 }
+.carteCocktail{
+  filter: sepia(0.3);
+  filter: hue-rotate(120deg);
+}
+.cartePlat{
+  filter: sepia(0.3);
+  filter: hue-rotate(240deg);
+}
+
 .theme--light.v-application {
   background-color: #00000000 !important;
 }

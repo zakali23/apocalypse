@@ -45,25 +45,25 @@
         <template v-if="drink.show">
             <h1  class="text-sm-center">Les boissons en sang</h1>
             <v-layout drink>
-                <v-flex md-3 @click.once="view7" v-if="drink.view1" class="text-sm-center">
+                <v-flex md-3 @click.once="view7" v-if="drink.view1" class="text-sm-center carteCocktail">
                     <img :src="drink.img" :height="ht" width="auto" /><br>
                     {{drink.name}}
                 </v-flex>
-                <v-flex md-3 @click.once="view8" v-if="drink.view2" class="text-sm-center">
+                <v-flex md-3 @click.once="view8" v-if="drink.view2" class="text-sm-center carteCocktail">
                     <img :src="drink.img" :height="ht" width="auto" />
                 </v-flex>
-                <v-flex md-3 @click.once="view9" v-if="drink.view3" class="text-sm-center">
-                    <img :src="drink.img" :height="ht" width="auto" />
-
-                </v-flex>
-                <v-flex md-3 @click.once="view10" v-if="drink.view4" class="text-sm-center">
-                    <img :src="drink.img" :height="ht" width="auto" />
-                </v-flex>
-                <v-flex md-3 @click.once="view11" v-if="drink.view5" class="text-sm-center">
+                <v-flex md-3 @click.once="view9" v-if="drink.view3" class="text-sm-center carteCocktail">
                     <img :src="drink.img" :height="ht" width="auto" />
 
                 </v-flex>
-                <v-flex md-3 @click.once="view12" v-if="drink.view6" class="text-sm-center">
+                <v-flex md-3 @click.once="view10" v-if="drink.view4" class="text-sm-center carteCocktail">
+                    <img :src="drink.img" :height="ht" width="auto" />
+                </v-flex>
+                <v-flex md-3 @click.once="view11" v-if="drink.view5" class="text-sm-center carteCocktail">
+                    <img :src="drink.img" :height="ht" width="auto" />
+
+                </v-flex>
+                <v-flex md-3 @click.once="view12" v-if="drink.view6" class="text-sm-center carteCocktail">
                     <img :src="drink.img" :height="ht" width="auto" />
                 </v-flex>
             </v-layout>
