@@ -5,14 +5,12 @@
             <h1  class="text-sm-center text--white">Mes choix :</h1><br>
             <v-layout >
                 <v-flex md4  v-if="res1" class="text-sm-center bordure">
-                    <img :src="movie.img" :height="choixht" width="auto" style="border : 5px solid white !important;
-"/><br>
+                    <img :src="movie.img" :height="choixht" width="auto" style="border : 5px solid white !important;"/><br>
                     <span>{{movie.name}}</span>
                 </v-flex>
 
                 <v-flex md4  v-if="res2" class="text-sm-center bordure">
-                    <img :src="drink.img" :height="choixht" width="auto"  style="border : 5px solid white !important;
-"/><br>
+                    <img :src="drink.img" :height="choixht" width="auto"  style="border : 5px solid white !important;"/><br>
                     <span> {{drink.name}}</span>
                 </v-flex>
 
@@ -76,7 +74,7 @@
         </template>
 
         <template v-if="bouffe.show">
-            <h1  class="text-sm-center">Les boissons en sang</h1>
+            <h1 class="text-sm-center">Les boissons en sang</h1>
             <v-layout bouffe>
                 <v-flex md-3 @click.once="view13" v-if="bouffe.view1" class="text-sm-center cartePlat">
                     <img :src="bouffe.img" :height="ht" width="auto" /><br>
@@ -414,7 +412,7 @@
             },
 
             getRandomBouffe(){
-              let items = ['a', 'b', 'c', 'd', 'e','f','j','h','i','g','k','l'];
+              let items = ['caviar_sanguinolant', 'céleris', 'choucroute', 'entrecote_de_zombie', 'hamburger_dechu','kebap_de_la_mort','lasagnes_de_ta_grand_mere','pizza_input','schneck_en_croute','steak_saignant','sushi_au_mercure','tacos_gluant'];
               let nom = '';
               nom = items[Math.floor(Math.random()*items.length)];
               this.bouffe.name = nom;
