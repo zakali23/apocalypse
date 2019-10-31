@@ -6,7 +6,7 @@
             <h2 class="text-sm-center">Quel plat pour votre Halloween ?</h2>
             <v-layout >
                 <v-flex md-3 @click="view13" v-if="bouffe.view1" class="text-sm-center cartePlat">
-                    <img :src="bouffe.img" :height="ht" width="auto" /><br>
+                    <img src="/images/carte.png/" :height="ht" width="auto" /><br>
                 </v-flex>
                 <v-flex md-3 @click="view14" v-if="bouffe.view2" class="text-sm-center cartePlat">
                     <img src="/images/carte.png/" :height="ht" width="auto" />
@@ -31,60 +31,58 @@
             <h2  class="text-sm-center">Une boisson ?</h2>
             <v-layout >
                 <v-flex md-3 @click="view7" v-if="drink.view1" class="text-sm-center carteCocktail">
-                    <img :src="drink.img" :height="ht" width="auto" /><br>
+                    <img src="/images/carte.png/" :height="ht" width="auto" /><br>
                 </v-flex>
                 <v-flex md-3 @click="view8" v-if="drink.view2" class="text-sm-center carteCocktail">
-                    <img :src="drink.img" :height="ht" width="auto" />
+                    <img src="/images/carte.png/" :height="ht" width="auto" />
                 </v-flex>
                 <v-flex md-3 @click="view9" v-if="drink.view3" class="text-sm-center carteCocktail">
-                    <img :src="drink.img" :height="ht" width="auto" />
+                    <img src="/images/carte.png/" :height="ht" width="auto" />
 
                 </v-flex>
                 <v-flex md-3 @click="view10" v-if="drink.view4" class="text-sm-center carteCocktail">
-                    <img :src="drink.img" :height="ht" width="auto" />
+                    <img src="/images/carte.png/" :height="ht" width="auto" />
                 </v-flex>
                 <v-flex md-3 @click="view11" v-if="drink.view5" class="text-sm-center carteCocktail">
-                    <img :src="drink.img" :height="ht" width="auto" />
+                    <img src="/images/carte.png/" :height="ht" width="auto" />
 
                 </v-flex>
                 <v-flex md-3 @click="view12" v-if="drink.view6" class="text-sm-center carteCocktail">
-                    <img :src="drink.img" :height="ht" width="auto" />
+                    <img src="/images/carte.png/" :height="ht" width="auto" />
                 </v-flex>
             </v-layout>
         </template>
         <template v-if="filler.show">
-            <v-layout v-if="filler.show">
                 <v-flex md-3  v-if="filler.view" class="text-sm-center">
-                    <img :src="filler.img" height="280px" width="auto" style="opacity: 0;"/><br>
+                    <img src="/images/carte.png/" height="280px" width="auto" style="opacity: 0;"/><br>
                 </v-flex>
-            </v-layout>
 
         </template>
         <template v-if="movie.show">
             <h2  class="text-sm-center">Et un film, pour vous détendre</h2><br>
             <v-layout v-if="movie.show">
                 <v-flex md-3 @click="view1" v-if="movie.view1" class="text-sm-center carteMovie">
-                    <img :src="movie.img" :height="ht" width="auto" /><br>
+                    <img src="/images/carte.png/" :height="ht" width="auto" /><br>
                 </v-flex>
                 <v-flex md-3 @click="view2" v-if="movie.view2" class="text-sm-center carteMovie">
-                    <img :src="movie.img" :height="ht" width="auto" />
+                    <img src="/images/carte.png/" :height="ht" width="auto" />
                 </v-flex>
                 <v-flex md-3 @click="view3" v-if="movie.view3" class="text-sm-center carteMovie">
-                    <img :src="movie.img" :height="ht" width="auto" />
+                    <img src="/images/carte.png/" :height="ht" width="auto" />
 
                 </v-flex>
                 <v-flex md-3 @click="view4" v-if="movie.view4" class="text-sm-center carteMovie">
-                    <img :src="movie.img" :height="ht" width="auto" />
+                    <img src="/images/carte.png/" :height="ht" width="auto" />
                 </v-flex>
                 <v-flex md-3 @click="view5" v-if="movie.view5" class="text-sm-center carteMovie">
-                    <img :src="movie.img" :height="ht" width="auto" />
+                    <img src="/images/carte.png/" :height="ht" width="auto" />
                 </v-flex>
                 <v-flex md-3 @click="view6" v-if="movie.view6" class="text-sm-center carteMovie">
-                    <img :src="movie.img" :height="ht" width="auto" />
+                    <img src="/images/carte.png/" :height="ht" width="auto" />
                 </v-flex>
             </v-layout>
         </template>
-                <template v-if="choix">
+        <template v-if="choix">
             <v-layout >
                 <v-flex md4  v-if="res1" class="text-sm-center bordure">
                     <img :src="bouffe.img" :height="choixht" width="auto"  style="border : 5px solid white !important;"/><br>
@@ -146,7 +144,7 @@
             </v-layout>
             </div>
             </div>
-            <div class="restart" style="position:absolute;right:50px;bottom:50px;color=#EEEEEE;"><a href="" onclick="window.location.reload();">Test again <img src="/images/restart.png" height="50px" style="filter:invert(1)"></a></div>
+            <div class="restart" style="position:absolute;right:50px;bottom:50px;color=#EEEEEE;background-color:#FFF;padding:0px 0px 0px 5px ; border-radius:5px;"><a class="mescouilles" href="" onclick="window.location.reload();">Try again <img src="/images/restart.png" height="50px" ></a></div>
             </div>
 
     </template>
@@ -184,7 +182,7 @@
             filler:{
                 show:false,
                 view:true,
-                img:"/images/carte.png/",
+                img:"/images/waitingCard.png/",
 
             },
             movie:{
@@ -195,7 +193,7 @@
                 view4:true,
                 view5:true,
                 view6:true,
-                img:"/images/carte.png/",
+                img:"/images/waitingCard.png/",
                 name:'',
                 id:'0',
             },
@@ -207,7 +205,7 @@
                 view4:true,
                 view5:true,
                 view6:true,
-                img:"/images/carte.png/",
+                img:"/images/waitingCard.png/",
                 name:''
             },
             bouffe:{
@@ -218,7 +216,7 @@
                 view4:true,
                 view5:true,
                 view6:true,
-                img:"/images/carte.png/",
+                img:"/images/waitingCard.png/",
                 name:''
             },
             monster:{
@@ -237,30 +235,29 @@
         methods: {
            view1 () {
 
+                this.filler.view = true
+                this.filler.show = true
+
+                this.number = this.getRandomInt()
+                this.getResultMovie()
+
                 this.movie.view2 = false
                 this.movie.view3 = false
                 this.movie.view4 = false
                 this.movie.view5 = false
                 this.movie.view6 = false
-                this.filler.view = true
-                this.filler.show = true
-//                this.res3 = true
-                this.number = this.getRandomInt()
-                this.getResultMovie()
-             this.getResultMonster()
              },
             view2 () {
 
+                this.filler.view = true
+                this.filler.show = true
+
+                this.getResultMovie()
                 this.movie.view1 = false
                 this.movie.view3 = false
                 this.movie.view4 = false
                 this.movie.view5 = false
                 this.movie.view6 = false
-                this.filler.view = true
-                this.filler.show = true
-//                this.res3 = true
-                this.getResultMovie()
-             this.getResultMonster()
  
             },
             view3 () {
@@ -274,7 +271,6 @@
                 this.filler.view = true
 //                this.res3 = true
                 this.getResultMovie()
-              this.getResultMonster()
             },
             view4 () {
 
@@ -287,7 +283,6 @@
                 this.filler.view = true
 //                this.res3 = true
                 this.getResultMovie()
-              this.getResultMonster()
             },
             view5 () {
 
@@ -300,7 +295,6 @@
                 this.filler.view = true
 //                this.res3 = true
                 this.getResultMovie()
-              this.getResultMonster()
             },
             view6 () {
 //                this.res3 = true
@@ -314,69 +308,68 @@
                 this.filler.view = true
                 this.res1 = true
                 this.getResultMovie()
-              this.getResultMonster()
             },
 
             view7 () {
-//                this.res2 = true
+
+                this.lettre = this.getRandomLettre()
+                this.getResultDrink()
                 this.drink.view2 = false
                 this.drink.view3 = false
                 this.drink.view4 = false
                 this.drink.view5 = false
                 this.drink.view6 = false
-                this.lettre = this.getRandomLettre()
-                this.getResultDrink()
             },
             view8 () {
 //                this.res2 = true
+                this.lettre = this.getRandomLettre()
+                this.getResultDrink()
                 this.drink.view1 = false
                 this.drink.view3 = false
                 this.drink.view4 = false
                 this.drink.view5 = false
                 this.drink.view6 = false
 
-                this.lettre = this.getRandomLettre()
-                this.getResultDrink()
             },
             view9 () {
 //                this.res2 = true
+                this.lettre = this.getRandomLettre()
+                this.getResultDrink()
                 this.drink.view2 = false
                 this.drink.view1 = false
                 this.drink.view4 = false
                 this.drink.view5 = false
                 this.drink.view6 = false
-                this.lettre = this.getRandomLettre()
-                this.getResultDrink()
             },
             view10 () {
  //               this.res2 = true
+                this.lettre = this.getRandomLettre()
+                this.getResultDrink()
                 this.drink.view2 = false
                 this.drink.view3 = false
                 this.drink.view1 = false
                 this.drink.view5 = false
                 this.drink.view6 = false
-                this.lettre = this.getRandomLettre()
-                this.getResultDrink()
             },
             view11 () {
 //                this.res2 = true
+                this.lettre = this.getRandomLettre()
+                this.getResultDrink()
                 this.drink.view2 = false
                 this.drink.view3 = false
                 this.drink.view4 = false
                 this.drink.view1 = false
                 this.drink.view6 = false
-                this.lettre = this.getRandomLettre()
-                this.getResultDrink()
             },
             view12 () {
 //                this.res2 = true
+                this.lettre = this.getRandomLettre()
+                this.getResultDrink()
                 this.drink.view1 = false
                 this.drink.view3 = false
                 this.drink.view4 = false
                 this.drink.view5 = false
                 this.drink.view2 = false
-                this.lettre = this.getRandomLettre()
-                this.getResultDrink()
             },
             view13 () {
 //                this.res1 = true
@@ -439,6 +432,18 @@
                 this.bouffe.view1 = false
                 this.getRandomBouffe()
             },
+            verifieDrink(machin,i) {
+                for (i=1;i<7;i++){
+                let el = machin+'.view' +i;
+//                alert(el)
+                    if (i==num){
+                        this.el = true;
+                    } 
+                    else {
+                        this.el = false;
+                    } 
+                }
+            },
             getRandomInt() {
                 let res = ''
                  res = Math.floor(Math.random() * Math.floor(82));
@@ -471,7 +476,10 @@
                 }).finally(function () {
 
                 });
+//                alert('pouet')
                 this.res3 = true
+
+                 this.getResultMonster()
 
             },
             getResultDrink(){
@@ -491,7 +499,7 @@
                         self.movie.show = true
                        // console.log(response.data.drinks[0])
                     }).catch(function (error) {
-                }).finally(function () {
+                }).finally(function (response) {
 
                 });
                 this.res2 = true
@@ -515,7 +523,6 @@
             },
 
             getResultMonster(){
-
                 let pouet = (this.movie.id + this.drink.id + this.numRandom)%20 +1
                 console.log(this.movie.id)
                 console.log(this.drink.id)
@@ -542,8 +549,9 @@
                         self.choix = true
                     }).catch(function (error) {
                     }).finally(function () {
+                    this.res3 = true
+                    
                 });
-                this.monster.show = true
             },
         }
     };

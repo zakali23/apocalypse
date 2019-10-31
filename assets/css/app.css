@@ -19,43 +19,50 @@ table {
   font-family : 'Rock Salt', cursive;
 }
 a {
-  text-decoration: none;
-  color: #FFF;
-  font-weight: bold;
+  text-decoration: none !important;
+  color: #000 !important;
+  font-weight: bold !important;
 }
 a:hover {
-  text-decoration: none;
+  text-decoration: underline !important;
+}
+.mescouilles:hover {
+  transition: 
 }
 @keyframes fadeIn {
   0% {
     transform: opacity(0%) translateY(40px) width(120%);
   }
-  50% {
+
+  95% {
     transform: opacity(0%) translateY(40px) width(120%);
   }
   100% {
     transform: opacity(100%) translateY(0px) width(100%);
   }
 }
+.resultFond{
+animation: 5s ease-out 0s 1 fadeIn;  
+}
 .carteCocktail{
   filter: sepia(0.3);
   filter: hue-rotate(120deg);
-animation: 2s ease-out 0s 1 fadeIn;
-}
+/*animation: 2s ease-out 0s 1 fadeIn;
+*/}
 .carteCocktail:hover{
   cursor:pointer ;
+
 }
 .cartePlat{
 filter: invert(0.85);
-animation: 2s ease-out 0s 1 fadeIn;
-}
+/*animation: 2s ease-out 0s 1 fadeIn;
+*/}
 .cartePlat:hover{
   cursor:pointer ;
 }
 .carteMovie{
-animation: 1s ease-out 0s 1 fadeIn;
-animation-delay: 250ms;
-}
+/*animation: 1s ease-out 0s 1 fadeIn;
+*/}
 .carteMovie:hover{
   cursor:pointer ;
 }
