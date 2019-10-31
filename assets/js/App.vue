@@ -16,7 +16,7 @@
 
                 <v-flex md4  v-if="res3" class="text-sm-center bordure">
                     <img :src="bouffe.img" :height="choixht" width="auto"  style="border : 5px solid white !important;"/><br>
-                    {{bouffe.name}}
+                   <span> {{bouffe.name}}</span>
                 </v-flex>
 
             </v-layout>
@@ -26,7 +26,6 @@
             <v-layout v-if="movie.show">
                 <v-flex md-3 @click.once="view1" v-if="movie.view1" class="text-sm-center">
                     <img :src="movie.img" :height="ht" width="auto" /><br>
-                    {{movie.name}}
                 </v-flex>
                 <v-flex md-3 @click.once="view2" v-if="movie.view2" class="text-sm-center">
                     <img :src="movie.img" :height="ht" width="auto" />
@@ -48,10 +47,9 @@
         </template>
         <template v-if="drink.show">
             <h1  class="text-sm-center">Les boissons en sang</h1>
-            <v-layout drink>
+            <v-layout >
                 <v-flex md-3 @click.once="view7" v-if="drink.view1" class="text-sm-center carteCocktail">
                     <img :src="drink.img" :height="ht" width="auto" /><br>
-                    {{drink.name}}
                 </v-flex>
                 <v-flex md-3 @click.once="view8" v-if="drink.view2" class="text-sm-center carteCocktail">
                     <img :src="drink.img" :height="ht" width="auto" />
@@ -72,13 +70,11 @@
                 </v-flex>
             </v-layout>
         </template>
-
         <template v-if="bouffe.show">
             <h1 class="text-sm-center">Les boissons en sang</h1>
-            <v-layout bouffe>
-                <v-flex md-3 @click.once="view13" v-if="bouffe.view1" class="text-sm-center cartePlat">
+            <v-layout >
+                <v-flex md-3 @click="view13" v-if="bouffe.view1" class="text-sm-center cartePlat">
                     <img :src="bouffe.img" :height="ht" width="auto" /><br>
-                    {{bouffe.name}}
                 </v-flex>
                 <v-flex md-3 @click.once="view14" v-if="bouffe.view2" class="text-sm-center cartePlat">
                     <img :src="bouffe.img" :height="ht" width="auto" />
@@ -163,7 +159,6 @@
                 img:"/images/carte.png/",
                 name:''
             },
-
             choix:false
 
 
@@ -302,7 +297,6 @@
                 this.bouffe.view5 = false
                 this.bouffe.view6 = false
                 this.getRandomBouffe()
-             //   this.getResultBouffe()
               this.getResultMonster()
             },
             view14 () {
@@ -430,6 +424,7 @@
               this.bouffe.name = nom;
               let extension ='.jpg';
               this.bouffe.img = `/images/bouffe/${nom}${extension}`
+                this.bouffe.show = false
             },
 
             getResultMonster(){
