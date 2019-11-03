@@ -5,7 +5,7 @@
         <template v-if="bouffe.show" class="animate fadeInDown ">
             <h2 class="text-sm-center ">Quel plat pour votre Halloween ?</h2>
             <v-layout >
-                <v-flex md-3 @click="view13" v-if="bouffe.view1" :class="animation" @mouseover="animateHe" @mouseout="desanime">
+                <v-flex md-3 @click="view13" v-if="bouffe.view1" class="text-sm-center cartePlat">
                     <img src="/images/carte.png/" :height="ht" width="auto" /><br>
                 </v-flex>
                 <v-flex md-3 @click="view14" v-if="bouffe.view2" class="text-sm-center cartePlat">
